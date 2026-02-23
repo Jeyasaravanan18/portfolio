@@ -1,0 +1,124 @@
+/* ===== NAVBAR / HUD ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg);
+    border-bottom: 3px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.navbar-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.navbar-links a {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    transition: color 0.2s;
+    position: relative;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--accent);
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+.navbar-socials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navbar-socials a {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-socials a svg {
+    width: 24px;
+    height: 24px;
+}
+
+.navbar-socials a:hover {
+    color: var(--accent);
+}
+
+/* Mobile */
+.navbar-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+.navbar-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 2px solid var(--border);
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1.2rem;
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-hamburger {
+        display: flex;
+    }
+}
